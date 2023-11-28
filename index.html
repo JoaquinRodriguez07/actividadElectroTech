@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>El carrito maleducado</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1 class="text-center mt-4 fs-9">Adquiri tu proxima nave <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+    <h1 class="text-center mt-4 fs-9" style="color: rgb(209, 128, 23)">Adquiri tu proxima nave <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
         <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17 1.247 0 3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
       </svg></h1>
    
@@ -28,50 +30,45 @@
 
       <button class="btn btn-outline-dark" id="agregarProducto">Agregar al carrito</button>
     </form>
-    <hr>
+    
     <table class="table">
+
+     <h2 class=" m-3" style="color: #d68a26;">Mi carrito</h1>
       <thead>
         <tr>
-          <th scope="col">-</th>
+          <th scope="col">ID del producto</th>
           <th scope="col">Articulo</th>
           <th scope="col">Cantidad</th>
-          <th scope="col">+-</th>
+          <th scope="col">agregar/quitar</th>
           <th scope="col">Total final</th>
         </tr>
       </thead>
       <tbody id="items"></tbody>
       <tfoot>
-        <tr id="footer">
-          <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
-        </tr>
-      </tfoot>
+
     </table>
-    <div class="row" id="cards"></div>
+    <div class="row" id="cards">
+
+    </div>
   </div>
 
   <template id="template-footer">
-    <th scope="row" colspan="2">Total productos</th>
-    <td>10</td>
-    <td>
-      <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-        Vaciar todo
-      </button>
-    </td>
-    <td class="font-weight-bold">$ <span>5000</span></td>
+  
+
   </template>
   
   <template id="template-carrito">
     <tr>
       <th scope="row">id</th>
-      <td>Café</td>
+      <td>nashe</td>
       <td>
         <input type="number" class="form-control cantidad" value="1" min="1">
       </td>
       <td>
-        <button class="btn btn-info btn-sm">
+        <button class="btn btn-outline-success btn-sm agregar">
           +
         </button>
-        <button class="btn btn-danger btn-sm">
+        <button class="btn btn-outline-danger btn-sm quitar">
           -
         </button>
       </td>
@@ -86,12 +83,15 @@
         <div class="card-body">
           <h5>Titulo</h5>
           <p>Precio</p>
-          <button class="btn btn-dark">Comprar</button>
+          <button class="btn btn-dark comprar">Agregar al carrito <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
+            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+          </svg></button>
         </div>
       </div>
     </div>
   </template>
 
-  <script src="app.js"></script>
+  <script src="init.js"></script>
 </body>
 </html>

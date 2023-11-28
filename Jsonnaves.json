@@ -1,0 +1,46 @@
+[
+	{
+		"precio": 3500,
+		"id": 1,
+		"title": "la maleducada",
+		"thumbnailUrl": "imagenes/motito.jpg"
+	},
+
+	{
+		"precio": 3000,
+		"id": 2,
+		"title": "cuchao(original)",
+		"thumbnailUrl": "imagenes/rayo.jpg"
+	},
+
+	{
+		"precio": 3000,
+		"id": 3,
+		"title": "auto picapiedra (a estrenar 0km)",
+		"thumbnailUrl": "imagenes/picapiedra.jpg"
+	},
+
+	{
+		"precio": 2500,
+		"id": 4,
+		"title": "bici cj (única)",
+		"thumbnailUrl": "imagenes/bicicj.jpg"
+	},
+
+	{
+		"precio": 2500,
+		"id": 5,
+		"title": "michicar",
+		"thumbnailUrl": "imagenes/michicar.jpg"
+	},
+	{
+
+		"precio": 2500,
+		"id": 5,
+		"title": "alospits",
+		"thumbnailUrl": "imagenes/guido.jpg"
+
+	}
+	
+
+]
