@@ -1,12 +1,12 @@
 /* constantes */
 const templateCard = document.getElementById('template-card').content
 const elementos = document.getElementById('items')
-const footer = document.getElementById('footer')
 const templateFooter = document.getElementById('template-footer').content
-const tarjetitas = document.getElementById('cards')
 const templateCarrito = document.getElementById('template-carrito').content
+const footer = document.getElementById('footer')
 const fragment = document.createDocumentFragment()
 let carrito = {}
+const tarjetitas = document.getElementById('cards')
 
 
 
@@ -17,7 +17,7 @@ const traerinfo = async()=>{
 		crearTarjetita(data)
 
 	}catch(error){
-		console.log(error)
+		/* console.log(error) */
 	}
 }
 
@@ -37,7 +37,7 @@ const llenarCarritardo = ()=> {
 
 	elementos.appendChild(fragment)
 
-	pintarFooter()
+	crearfooter()
 
 	localStorage.setItem('carrito', JSON.stringify(carrito))
 
@@ -74,8 +74,7 @@ const crearTarjetita = data=>{
 	tarjetitas.appendChild(fragment)
 }
 const ponerenCarrito = e =>{
-	//console.log(e.target)
-	//console.log(e.target.classList.contains('btn-dark'))
+
 	if(e.target.classList.contains('btn-dark')){
 		setCarrito(e.target.parentElement)
 	}
@@ -85,7 +84,7 @@ e.stopPropagation()
 
 
 const setCarrito = item => {
-	//console.log(objeto)
+
 	const producto = {
 		title: item.querySelector('h5').textContent,
 		precio: item.querySelector('p').textContent,
@@ -103,14 +102,9 @@ const setCarrito = item => {
 
 
 
-const pintarFooter = () => {
+const crearfooter = () => {
 		footer.innerHTML = ''
-		if(Object.keys(carrito).length === 0){
-			footer.innerHTML = `
-			<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
-			`
-			return
-		}
+	
 
 		const nCantidad = Object.values(carrito).reduce((acc, {cantidad})=> acc + cantidad, 0)
 		const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio, 0)
@@ -122,11 +116,6 @@ const pintarFooter = () => {
 		fragment.appendChild(clone)
 		footer.appendChild(fragment)
 	
-		const btnVaciar = document.getElementById('vaciar-carrito')
-		btnVaciar.addEventListener('click', ()=>{
-			carrito = {}
-			llenarCarritardo()
-		})
 	}
 
 
